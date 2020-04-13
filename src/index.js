@@ -7,7 +7,7 @@ import BottomRow from './BottomRow.js'
 const element = (
     <>
         <App />
-        <BottomRow />
+        {/* <BottomRow /> */}
     </>
 )
 
