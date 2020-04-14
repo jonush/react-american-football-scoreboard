@@ -74,6 +74,7 @@
 
 .bottomRow {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   place-items: center;
   height: 20rem;
@@ -87,11 +88,11 @@
   flex-direction: column;
   justify-content: space-around;
   place-items: center;
+  margin-top: 100%;
+  padding: 0 25%; 
 }
 
 .down__value,
-.toGo__value,
-.ballOn__value,
 .quarter__value {
   font-family: "Ozone";
   font-size: 5rem;
@@ -100,6 +101,25 @@
   text-align: center;
   background-color: var(--black);
   margin-top: 1rem;
+  margin-left: 10%;
+  border-radius: 4px;
+  padding: 1.6rem;
+  border: 1px solid white;
+}
+
+.toGo__title {
+  margin-left: 15%;
+}
+
+.toGo__value {
+  font-family: "Ozone";
+  font-size: 5rem;
+  color: var(--red);
+  width: 7rem;
+  text-align: center;
+  background-color: var(--black);
+  margin-top: 1rem;
+  margin-left: 20%;
   border-radius: 4px;
   padding: 1.6rem;
   border: 1px solid white;
@@ -110,12 +130,46 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
+  margin-top: 4%;
+  margin-left: 25%;
 }
 
 .homeButtons__touchdown,
 .homeButtons__fieldGoal,
 .awayButtons__touchdown,
-.awayButtons__fieldGoal {
+.awayButtons__fieldGoal,
+.reset {
   margin: 1rem;
   border-radius: 4px;
+}
+
+.foul-buttons {
+  margin-right: 3%;
+  margin-top: 65%;
+}
+
+.foul-buttons button {
+  border-radius: 4px;
+  margin: 5% auto;
+}
+
+.quarter-buttons {
+  margin-top: 65%;
+}
+
+.quarter-buttons  button{
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  margin: 5% auto;
+}
+
+.original-content {
+  display: flex;
+  justify-content: center;
+}
+
+.extra-buttons {
+  display: flex;
+  justify-content: center;
 }
