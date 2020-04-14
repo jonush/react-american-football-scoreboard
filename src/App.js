@@ -1,5 +1,5 @@
 //TODO: STEP 1 - Import the useState hook.
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import BottomRow from "./BottomRow";
 import "./App.css";
 
@@ -12,6 +12,7 @@ function App() {
     seconds: parseInt(0),
   });
 
+  // changing the score for home and away points
   const home2 = event => {
     setT1(team1 + 2);
   }
@@ -28,18 +29,26 @@ function App() {
     setT2(team2 + 3);
   }
 
-  const resetS = event => {
+  // reset the score
+  const resetScore = event => {
     setT1(team1 * 0);
     setT2(team2 * 0);
   }
 
-  const tick = event => {
+  // countdown timer
+  const count = event => {
     if(time.seconds === 0){
       setTime({
         minutes: time.minutes - 1,
         seconds: 59,
       });
-    } else {
+    } else if (time.seconds === 0 && time.minutes === 0) {
+      setTime({
+        minutes: 12,
+        seconds: 0,
+      })
+    }
+    else {
       setTime({
         minutes: time.minutes,
         seconds: time.seconds - 1,
@@ -47,12 +56,14 @@ function App() {
     }
   }
 
-  React.useEffect(() => {
-    let clock = setInterval(() => tick(), 1000);
+  // useEffect()
+  useEffect(() => {
+    let clock = setInterval(() => count(), 1000);
     return() => clearInterval(clock);
   });
 
-  const resetC = event => {
+  // reset the countdown timer
+  const resetClock = event => {
     setTime({
       minutes: parseInt(12),
       seconds: parseInt(0),
@@ -90,8 +101,8 @@ function App() {
           <button className="awayButtons__touchdown" onClick={away2}>Away 2-pointer</button>
           <button className="awayButtons__fieldGoal" onClick={away3}>Away 3-pointer</button>
         </div>
-        <button onClick={resetS} className="reset">Reset Score</button>
-        <button onClick={resetC} className="reset">Reset Clock</button>
+        <button onClick={resetScore} className="reset">Reset Score</button>
+        <button onClick={resetClock} className="reset">Reset Clock</button>
       </section>
     </div>
   );
